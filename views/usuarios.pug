@@ -9,6 +9,7 @@ block content
         td Email 
         td Booleano 
         td Número
+        td 
     tbody
       each usu in usuarios
         tr 
@@ -16,3 +17,10 @@ block content
           td= usu.email
           td= usu.boolean
           td= usu.numberrange
+          td
+            a(href='/users/detalhe/' + usu.id) editar
+  p
+    if page > 0 
+      a(href='/users/' + (page-1)) << 
+    span= page
+    a(href='/users/' + (page+1)) >>

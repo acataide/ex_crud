@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Detalhe Usuário
+  form(method='post' action='/users/editar')
+    p
+      label(for='name') Nome: 
+      input(name='name' value=user.name)
+    p
+      label(for='email') E-mail: 
+      input(type='email' name='email' value=user.email)
+    p
+      label(for='numberrange') Número: 
+      input(type='number' name='numberrange' value=user.numberrange)
+    p
+      label(for='boolean') Booleano: 
+      input(type='checkbox' name='boolean' checked=user.boolean )
+    p
+      input(type='submit' value='Enviar')
