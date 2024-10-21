@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  table
+    thead
+      tr
+        td Nome 
+        td Email 
+        td Booleano 
+        td Número
+    tbody
+      each usu in usuarios
+        tr 
+          td= usu.name
+          td= usu.email
+          td= usu.boolean
+          td= usu.numberrange
