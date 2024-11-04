@@ -2,6 +2,8 @@ extends layout
 
 block content
   h1= title
+  p 
+    a(href='/users/novo') Novo Usuário 
   table
     thead
       tr
@@ -19,6 +21,8 @@ block content
           td= usu.numberrange
           td
             a(href='/users/detalhe/' + usu.id) editar
+            | &nbsp;&nbsp;
+            a(href='/users/apagar/' + usu.id) apagar
   p
     if page > 0 
       a(href='/users/' + (page-1)) << 

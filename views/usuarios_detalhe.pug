@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  h1 Detalhe Usuário
+  h1= title
   form(method='post' action='/users/editar')
     input(type='hidden' name='id', value=user.id)
+    if title == 'Novo Usuário'
+      input(type='hidden' name='novo', value='true')
     p
       label(for='name') Nome: 
       input(name='name' value=user.name)
