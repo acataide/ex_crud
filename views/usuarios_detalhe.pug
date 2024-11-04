@@ -3,6 +3,7 @@ extends layout
 block content
   h1 Detalhe Usuário
   form(method='post' action='/users/editar')
+    input(type='hidden' name='id', value=user.id)
     p
       label(for='name') Nome: 
       input(name='name' value=user.name)

@@ -9,7 +9,13 @@ router.get('/detalhe/:id', async function(req, res, next){
 });
 
 router.post('/editar', async function(req, res, next){
-  res.send(req.body.name);
+  var user = await Usuarios.findOne({_id:req.body.id}).exec();
+  user.name = req.body.name;
+  user.email = req.body.email;
+  user.boolean = req.body.boolean === 'on';
+  user.numberrange = req.body.numberrange;
+  await user.save()
+  res.redirect('/users/0');
 });
 
 /* GET users listing. */
