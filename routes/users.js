@@ -34,10 +34,13 @@ router.get('/apagar/:id', async function(req, res, next){
 /* GET users listing. */
 router.get('/:page', async function(req, res, next) {
   var page = parseInt(req.params.page);
+  var num_users = await Usuarios.estimatedDocumentCount();
+  var num_pages = Math.ceil(num_users / 10);
   var usuarios = await Usuarios.find().skip(10 * page).limit(10).exec();
   res.render('usuarios', { title: 'Usuários', 
                            usuarios: usuarios,
-                           page: page });
+                           page: page,
+                           num_pages: num_pages});
 });
 
 module.exports = router;

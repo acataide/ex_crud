@@ -25,6 +25,13 @@ block content
             a(href='/users/apagar/' + usu.id) apagar
   p
     if page > 0 
-      a(href='/users/' + (page-1)) << 
-    span= page
-    a(href='/users/' + (page+1)) >>
+      a(href='/users/' + (page-1)) <<
+    - var n = 0; 
+    while n < num_pages
+      if n == page
+        span #{n+1}, 
+      else
+        a(href='/users/'+n) #{n+1},
+      - n++;
+    if page < num_pages-1 
+      a(href='/users/' + (page+1)) >>
